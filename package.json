@@ -1,0 +1,15 @@
+{
+  "name": "nodejs_api_assignment",
+  "version": "1.0.0",
+  "description": "NodeJS API Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "NodeJS",
+    "API"
+  ],
+  "author": "Kalani Kitkouski",
+  "license": "MIT"
+}
