@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config()
 
 const {todoService, todoServiceById} = require("./services/todoService");
-const {userService} = require("./services/userService")
+const {userService, userServiceByName} = require("./services/userService")
 
 const app=express();
 
@@ -35,9 +35,20 @@ app.get("/todo/:todoId", (req,res,next)=>{
     })))
 })
 
-// localhost:3000/joke  
+// localhost:3000/users
 app.get("/users", (req,res,next)=>{
     userService().then(result=>res.status(200).json(result).
+    catch(err=res.status(501).json({
+        error: {
+            message: err.message,
+            status: err.status
+        }
+    })))
+})
+// localhost:3000/users/name
+app.get("/users/name", (req,res,next)=>{
+    const userKey = req.params.userKey;
+    userServiceByName().then(result=>res.status(200).json(result).
     catch(err=res.status(501).json({
         error: {
             message: err.message,
